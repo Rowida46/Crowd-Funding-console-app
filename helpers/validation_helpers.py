@@ -93,8 +93,8 @@ import datetime;
 def validate_date(msg='enter date in format dd/mm/yy : '):
     date, is_valid_date = input(msg), True
    
-    d, m, y = date.split("/")
     try:
+        d, m, y = date.split("/")
         datetime.datetime(int(y), int(m), int(d))
     except ValueError:
         is_valid_date = False
@@ -109,7 +109,7 @@ def validate_price(msg="your target (i.e 250000 EGP)  : "):
             "not a valid price  number : ")
     return budget
 
-def get_project_info():
+def get_project_info(id):
     title = get_proj_title()
     desc = input("your project details , u can skip this part : ")
     budget = validate_price()
@@ -117,7 +117,7 @@ def get_project_info():
     start = validate_date("enter start date in format dd/mm/yy  : ")
     end = validate_date("enter end date in format dd/mm/yy :  ")
 
-    project_info = {"title" : title, "description" : desc, 
+    project_info = {"user_id" : id,"title" : title, "description" : desc, 
         "budget" : budget , "start date" : start , "end date" : end}
     return project_info
 

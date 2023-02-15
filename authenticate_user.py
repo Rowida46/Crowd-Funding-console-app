@@ -12,13 +12,13 @@ def Register():
     insert_user(user_info)
 
 
-Register()
+#Register()
 
 def Login():
     user_login_info = validate_user_login_info()
     user_info = get_user_details(user_login_info)
     msg = f'voala {user_info[0]["name"] } !' if user_info else "wrong credentials "
     print(msg)
-
-Login()
+    return user_info[0] if user_info else ""
+     
 
